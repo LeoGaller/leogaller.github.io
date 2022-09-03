@@ -9,3 +9,4 @@ meta: "Spark"
 ---
 ![Apache Spark](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/128px-Apache_Spark_logo.svg.png "The main tool for data engineering!")
 
+Apache spark is the de facto tool for data engineering, you can confirm that just looking at the 
