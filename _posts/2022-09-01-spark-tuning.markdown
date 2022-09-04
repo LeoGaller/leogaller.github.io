@@ -7,6 +7,8 @@ author:
 - Leonardo Galler
 meta: "Spark"
 ---
+<div style="text-align: justify">
+
 ![Apache Spark](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/128px-Apache_Spark_logo.svg.png "The main tool for data engineering!")
 
 Apache spark is the de facto tool for data engineering, you can confirm that just looking at the companies that trust Spark to handle their data engineering efforts.
@@ -28,3 +30,5 @@ The spark processing will not fully use the cluster resources until the level of
 
 ## Possible solutions
 Firstly solving data skewing problems we will have a partial solution and following we will tune the parallelism parameters to achieve maximum performance from Spark.
+
+</div>
