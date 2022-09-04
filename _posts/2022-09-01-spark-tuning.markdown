@@ -15,6 +15,6 @@ Apache spark is the de facto tool for data engineering, you can confirm that jus
 By the quantity of languages and types of applications spark can handle you can expect some difficulties to arise. And the main issues are related to <b>Data Skew</b> and <b>Low Parallelism</b>, and these are the issues we will focus now.
 
 ### Defining the problem
-1. Data Skew: ![Data Skew](_images/../../_images/data-skew.png)
-
+1. Data Skew: ![Data Skew](../_images/data-skew.png)
+In Statistical terms a data skewing is refered to the value distribution
 2. Low Parallelism: 
