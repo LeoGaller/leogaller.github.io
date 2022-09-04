@@ -7,7 +7,7 @@ author:
 - Leonardo Galler
 meta: "Spark"
 ---
-<div style="text-align: justify">
+<div style="text-align: justify" markdown="1">
 
 ![Apache Spark](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/128px-Apache_Spark_logo.svg.png "The main tool for data engineering!")
 
