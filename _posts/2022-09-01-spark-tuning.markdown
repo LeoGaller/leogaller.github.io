@@ -17,7 +17,7 @@ By the quantity of languages and types of applications spark can handle you can 
 ## Defining the problem
 1. Data Skew: 
    
-    ![Data Skew](../../../../_images/data-skew.png "The statistical definition")
+    ![Data Skew](https://github.com/LeoGaller/leogaller.github.io/blob/main/_images/data-skew.png "The statistical definition")
 In Statistical terms a data skewing is refered to the value distribution that is or become uneven, as can be seen in the first iamge.
 Data skewing in computational systems for data processing normally is caused by transformations applied to the data. Some of these trasnformations are *Join, groupBy* and *orderBy*.<br><br>
     ![Data Skew in Spark](../../../../_images/skew-park.png "Visual reference of skewness of data in Sparks")
