@@ -25,10 +25,16 @@ Data skewing in computational systems for data processing normally is caused by 
 This situation often happens when you are trying to join tables that are not well distributed in the nodes of the cluster, this can make some partitions to become much higher than the others causing spark not to properly process the data in parallel.
 
 2. **Low Parallelism:**
-The spark processing will not fully use the cluster resources until the level of parallelism for each operation is high enough. For this reason, the main source of low level of parallelism is data skewing. We know that data skewing is directly connected to partitions and it cause low parallelism.
+The spark processing will not fully use the cluster resources until the level of parallelism for each operation is high enough. For this reason, the main source of low level of parallelism is data skewing. We know that data skewing is directly connected to partitions and it cause low parallelism.<br><br>
+![Data Skew in Spark]({{site.url}}/images/low-parallelism.png "Just 2 tasks processing 128 partitions")<br>
+In the above example we can see that only 2 executors are processing 128 partitions even though there are 12 executors available but were not used to process the data.
+Low paralelism makes the time of the longer running stage be the bottleneck of the whole processing.
 
 
 ## Possible solutions
 Firstly solving data skewing problems we will have a partial solution and following we will tune the parallelism parameters to achieve maximum performance from Spark.
+
+### Tackling data skewness
+
 
 </div>
