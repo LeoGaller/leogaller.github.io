@@ -57,8 +57,27 @@ Stages for all jobs:
 
 ![All Stages Detail]({{site.url}}/images/AllStagesPageDetail3.png)
 
-In the example below you can see that the first task is processing almost all the data alone, and does this at the risk of crashing the node of the cluster and taking all of the processing time.
+In the example below you can see that the first task is processing almost all the data alone, and does this at the risk of crashing the node and is the main cause for the long processing time.
 
 ![One task holding all the job time]({{site.url}}/images/bad-data-skew.png)
 
+Another point that we can take from the last image is the relation between partitions and parallelism. When Spark read data and creates the RDD and it distributes the partitions across different nodes. One important way to increase parallelism of spark processing is to increase the number of executors on the cluster. <br>
+However, knowing how the data should be distributed, so that the cluster can process data efficiently is extremely important. Apache Spark manages data through RDDs using partitions which help parallelize distributed data processing with negligible network traffic for sending data between executors. By default, Apache Spark reads data into an RDD from the nodes that are close to it.
+
+## Solving the problem
+Knowing that the Data Skewness and partitioning are related to each other we will tackle the data skewness problem and at the same time will solve the low parallelism issue.
+
+1. Enabling Adaptive Query Execution AQE<br>
+  This feature is available since Apache Spark 3.0.0 and is enabled by default on Spark 3.2.0.
+  When enabled in Spark SQL it makes use of the runtime statistics to choose the most efficient query execution plan. It is an optimization of the query execution plan made by the Spark Planner.
+    ```
+    spark.conf.set("spark.sql.adaptive.enabled", true)
+    spark.conf.set("spark.sql.adaptive.skewJoin.enabled",true)
+    ```
+    The parameter *spark.sql.adaptive.skewJoin.enabled* does the following:
+    > Spark dynamically handles skew in sort-merge join by splitting (and replicating if needed) skewed partitions.
+
+    To know more about AQE click [here](https://spark.apache.org/docs/latest/sql-performance-tuning.html#adaptive-query-execution) .
+
+2. 
 </div>
