@@ -116,10 +116,10 @@ Knowing that the Data Skewness and partitioning are related to each other we wil
 ## Conclusion
 
 When developing new applications always remember of:
-1. Scalability
-2. Reliability
-3. Performance
-4. Maintainability
+1. Scalability: Plan to different sizes of data volume;
+2. Reliability: Make tests to asure the solution you developed can handle many situations;
+3. Performance: Assess the time and consumption of resources to the best distribution of cluster resources;
+4. Maintainability: Keep it simple so it can be replicated and reused.
 
 And with those basics ideas and solutions that I shared, your Spark applications will run satisfactorily.
 
