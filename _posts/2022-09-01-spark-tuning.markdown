@@ -79,5 +79,26 @@ Knowing that the Data Skewness and partitioning are related to each other we wil
 
     To know more about AQE click [here](https://spark.apache.org/docs/latest/sql-performance-tuning.html#adaptive-query-execution) .
 
-2. 
+2. Repartition Spark Dataframes<br>
+  To be able to process data in parallel Spark needs to partition the data and distribute it across the executors.
+  Assuming that you have 50 executors and 5 cores per executor, so you should have at least 70 x 8 = 560 partitions.
+  By default, spark creates one partition for each HDFS block, and a HDFS block has 128 MB (Hadoop Version 2) and a task is created for each partition.
+  Each executor is responsible for 1 partition. If you have 100GB of data ,or 100,000MB, dividing by the block size you will have, aproximately, 781 blocks/partitions.
+  The ideal number of partitions based in executors and cores is 560.
+  The ideal number of partitions based in block size is 780.
+  Let's stay with the higher partitions number because we will have partitions with less data to process and the Spark parallelism will take care of it.
+  Having 780 partitions / 70 executors = 11 partitions per executor of 128mb per partition.
+  If we go with 560 partitions / 70 executors = 8 partitions per executor of 178mb per partition.
+  If initially your dataframe is created with a low number of partitions you increase it:
+    ```
+    df = df.repartition(780)
+    print(df.rdd.getNumPartitions())
+    ```
+    But if your dataframe were created with too much partitions we can reduce it using:
+    ```
+    df = df.coalesce(560)
+    print(df.rdd.getNumPartitions())
+    ```
+3. Salting
+4. 
 </div>

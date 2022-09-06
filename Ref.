@@ -3,3 +3,4 @@
 3. Optimizing the Skew in Spark - https://www.clairvoyant.ai/blog/optimizing-the-skew-in-spark
 4. Spark performs task with not enough parallelism - https://stackoverflow.com/questions/41848684/spark-performs-task-with-not-enough-parallelism
 5. Databricks: How to identify skew in your data? - https://medium.datadriveninvestor.com/databricks-how-to-identify-skew-in-your-data-6d82ed968014
+6. How to Efficiently Re-Partition Spark DataFrames - https://towardsdatascience.com/how-to-efficiently-re-partition-spark-dataframes-c036e8261418
