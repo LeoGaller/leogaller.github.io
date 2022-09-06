@@ -99,6 +99,28 @@ Knowing that the Data Skewness and partitioning are related to each other we wil
     df = df.coalesce(560)
     print(df.rdd.getNumPartitions())
     ```
-3. Salting
-4. 
+3. Key Salting
+   Sometimes you will have extremely huge datasets with many columns and billions of rows, and in this situation it is hard to find a good column for partitioning.
+   In this situation we can make use of a technique called key salting, in this technique the idea is to invent a new key, which guarantees an even distribution of data.
+
+   See below a simple example of creation of key salting:
+   ```
+    import pyspark.sql.functions as F
+    df = df.withColumn('salt', F.rand())
+    df = df.repartition(8, 'salt')
+   ```
+   To check if the key salting you can run the command below:
+   ```
+   df.groupBy(F.spark_partition_id()).count().show()
+   ```
+## Conclusion
+
+When developing new applications always remember of:
+1. Scalability
+2. Reliability
+3. Performance
+4. Maintainability
+
+And with those basics ideas and solutions that I shared, your Spark applications will run satisfactorily.
+
 </div>
