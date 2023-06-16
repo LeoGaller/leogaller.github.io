@@ -2,7 +2,7 @@
 layout: post
 title:  "MySQL with workbench using Docker"
 date:   2023-06-15 22:00:00 -0300
-categories: Spark
+categories: Docker
 author:
 - Leonardo Galler
 meta: "MySQL"
@@ -40,23 +40,79 @@ To fast start your studies or analysis on any of these tools you should be able 
 1. Install docker and check if it working.
   * On [windows](https://docs.docker.com/desktop/install/windows-install/)
   * On [Mac](https://docs.docker.com/desktop/install/mac-install/); For Mac you will have the option of chip, verify what is yours before.
-  * On [Linux](https://docs.docker.com/desktop/install/linux-install/)
+  * On [Linux](https://docs.docker.com/desktop/install/linux-install/)<br><br>
 
-2. Open the terminal
-3. Pull the docker image for [MySQL](https://hub.docker.com/_/mysql/)<br>
+2. Open the terminal<br><br>
+3. Pull the docker image for [MySQL](https://hub.docker.com/_/mysql/)<br><br>
 ~~~ shell
 docker pull mysql 
 ~~~
-![docker pull](({{site.url}}/images/docker-pull.png "Ran Successfully"))
+![docker pull]({{site.url}}/images/docker-pull.png "Ran Successfully")<br><br>
+4. Now we will create the container who will have MySQL running
+    1. ~~~ shell
+    docker run -p 3306:3306 -p 33060:33060 -v /home/leogaller/Documents/cursos/pece-poli/disciplina/"Arquitetura de BI e Big Data":/home/data --name mysql-poli-1 -e MYSQL_ROOT_PASSWORD=123456 -d mysql:latest
+       ~~~
+       ![docker run]({{site.url}}/images/docker-run-command.png "Ran Successfully")
+       Let's see what each part of the command is doing:<br>
+          ```docker run``` : Docker runs processes in isolated containers. A container is a process which runs on a host. [Reference](https://docs.docker.com/engine/reference/run/)<br>
+          ``` -p 3306:3306 -p 33060:33060 ``` : We are telling to the container that we want the host port 3306 to be mapped to the container port 3306. With this will be able to access it from the host.<br>
+          ```-v /home/leogaller/Documents/cursos/pece-poli/disciplina/"Arquitetura de BI e Big Data":/home/data``` : In this one, I'm telling to the container that I want to share a volume(directory) with the container, in which it will be created as ```/home/data``` **_Remember to replace to the folder in your computer that you want to share with the container_**.<br>
+          ```--name mysql-poli-1```: This is the name that I want the container to have.<br>
+          ```-e MYSQL_ROOT_PASSWORD=123456```: This parameter is extremely important because with this one you will be able to access MySQL from workbench.<br>
+          ```-d```: Run this container in detached mode. [Detached mode](https://docs.docker.com/engine/reference/run/#detached--d).<br>
+          ```mysql:latest```: Telling which image version to use.<br>
+    2. Verifiy that the container is running<br>
+    ~~~ shell
+    docker ps
+    ~~~
+    ![docker ps]({{site.url}}/images/docker-ps.png)<br><br>
+
+5. Now that we saw that the container is running correctly we need to get it IP to use in workbench
+    1. Let's check for the network that docker created to find this container.<br>
+    ```docker network list```
+    ![docker network list]({{site.url}}/images/docker-network-list.png)
+    2. You can the IP of the container inspecting the network *bridge*, you will its IP in the parameter IPv4Address
+    ```docker network inspect bridge```
+    ![docker network inspect]({{site.url}}/images/docker-net-inspect-full.png)
+    Focusing in the important part<br>
+    ![docker network inspect container]({{site.url}}/images/docker-net-insp-container.png)
+    The IP we have is *172.17.0.2*, save it for later.<br><br>
+
+6. Install Workbench from [here](https://dev.mysql.com/downloads/workbench/). Correctly select your operational system. In my case it is an Ubuntu Linux.
+    ![Install workbench]({{site.url}}/images/mysql-ubuntu-my-version.png)<br><br>
+
+7. After the installation is complete lets connect to the container
+    1. Initial workbench screen<br>
+    ![Initial workbench]({{site.url}}/images/initial-screen-workbench.png)
+    2. Set a new connection, see that I gave a useful nume and in the hostname I placed the IP that I get from the network inspect. The password you created you will need to save it to a keychain for security.<br>
+    ![Set connection]({{site.url}}/images/set-conn.png)
+    3. Save the password to the key chain(it is the same password that you set in the parameter **MYSQL_ROOT_PASSWORD**)<br>
+    ![Password to the keychain]({{site.url}}/images/password-keychain.png)
+    4. Test the connection(If you did everything correctly it will be a successful connection.:D )
+    ![Successful connection]({{site.url}}/images/test-conn.png)
+    5. Click OK <br><br>
+
+8. Now you will be able to see the newly created connection.<br>
+![Successful connection]({{site.url}}/images/new-conn.png)<br><br>
+
+9. Access the new connection clicking on the icon.<br>
+![All working]({{site.url}}/images/all-working.png)<br><br>
+
+10. When you are not using, stop the container(remember to get the container ID using docker ps).
+```docker container stop <CONTAINER-ID>```
+![Docker stop]({{site.url}}/images/docker-stop.png.png)<br><br>
+
+11. When you wish to go back where you stopped, remember to restart your container. You do not need to run ```docker run``` now you will use ```docker container start```.<br>
+    1. See your stopped container<br>
+    ```docker ps -a```
+    2. Restart the container
+    ```docker container start <CONTAINER ID / OR NAME>```
+    ```docker container start mysql-poli-1```
 
 ## Conclusion
 
-When developing new applications always remember of:
-1. Scalability: Plan to different sizes of data volume;
-2. Reliability: Make tests to asure the solution you developed can handle many situations;
-3. Performance: Assess the time and consumption of resources to the best distribution of cluster resources;
-4. Maintainability: Keep it simple so it can be replicated and reused.
+Instead of downloading a huge software like VirtualBox or VMWare Player, and then a 8g image, just use docker. It will be faster and lightweight.
+I hope you enjoy this small tool!
 
-And with those basics ideas and solutions that I shared, your Spark applications will run satisfactorily.
-
+Be safe!
 </div>
