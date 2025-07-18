@@ -21,11 +21,19 @@
 title: L2 ANALYTICS
 email: leolacerdagaller@live.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A place for sharing ideas, solutions and challenges.
+  Professional insights into data analytics, Spark optimization, and modern data engineering solutions.
+  Sharing practical expertise in big data technologies, database management, and performance tuning.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://leogaller.github.io" # the base hostname & protocol for your site
+twitter_username: 
+github_username: LeoGaller
+linkedin_username: leonardo-galler
 
-github_username:  LeoGaller
+# Author information
+author:
+  name: Leonardo Galler
+  email: leolacerdagaller@live.com
+  bio: "Data Engineer & Analytics Professional specializing in Apache Spark, MySQL, and cloud technologies"
 
 # Build settings
 theme: minima
@@ -33,7 +41,29 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
+# Minima theme settings
+minima:
+  skin: dark
+  social_links:
+    github: LeoGaller
+    linkedin: leonardo-galler
+
+# Show excerpts on homepage
+show_excerpts: true
+
+# Google Analytics
+google_analytics: G-PGZQLHCM02
+
+# SEO and social
+lang: en_US
+timezone: America/Sao_Paulo
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -1,6 +1,7 @@
 ---
 permalink: /404.html
 layout: default
+title: "Page Not Found"
 ---
 
 <style type="text/css" media="screen">
@@ -9,17 +10,125 @@ layout: default
     max-width: 600px;
     text-align: center;
   }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
+  
+  .error-code {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .error-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .error-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .error-actions {
+    margin-top: 2rem;
+  }
+  
+  .error-actions a {
+    display: inline-block;
+    margin: 0 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .error-actions a:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  }
+  
+  .error-actions a.secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+  }
+  
+  .error-actions a.secondary:hover {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  .suggestions {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+  
+  .suggestions h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  
+  .suggestions ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  .suggestions li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+  }
+  
+  .suggestions a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  .suggestions a:hover {
+    text-decoration: underline;
   }
 </style>
 
 <div class="container">
-  <h1>404</h1>
+  <div class="error-code">404</div>
+  <h1 class="error-title">Oops! Page Not Found</h1>
+  <p class="error-description">
+    The page you're looking for seems to have wandered off into the data lake. 
+    Don't worry though – there's still plenty of valuable content to explore!
+  </p>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+  <div class="error-actions">
+    <a href="{{ "/" | relative_url }}">Return Home</a>
+    <a href="{{ "/about/" | relative_url }}" class="secondary">Learn More</a>
+  </div>
+
+  <div class="suggestions">
+    <h3>You might be interested in:</h3>
+    <ul>
+      <li><a href="{{ "/" | relative_url }}">Latest blog posts on data engineering</a></li>
+      <li><a href="{{ "/about/" | relative_url }}">About Leonardo Galler and L2 Analytics</a></li>
+      <li>Articles on <strong>Apache Spark optimization</strong> and <strong>database management</strong></li>
+      <li>Practical tutorials on <strong>Docker</strong> and <strong>data tools</strong></li>
+    </ul>
+  </div>
+
+  <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 2rem;">
+    If you believe this is an error, please feel free to 
+    <a href="mailto:leolacerdagaller@live.com" style="color: var(--primary-color);">contact me</a>.
+  </p>
 </div>
