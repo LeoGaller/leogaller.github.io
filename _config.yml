@@ -79,12 +79,6 @@ timezone: America/Sao_Paulo
 paginate: 10
 paginate_path: "/page:num/"
 
-# Collections for multilingual content
-collections:
-  posts_pt:
-    output: true
-    permalink: /pt/:title/
-
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

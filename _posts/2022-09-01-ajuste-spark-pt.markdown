@@ -7,6 +7,7 @@ author:
 - Leonardo Galler
 meta: "Spark"
 lang: pt
+permalink: /pt/ajuste-spark-distorcao-dados-baixo-paralelismo/
 ---
 <div style="text-align: justify" markdown="1">
 

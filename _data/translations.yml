@@ -9,6 +9,7 @@ en:
     intro_title: "Data Engineering & Analytics Insights"
     intro_description_1: "Welcome to L2 Analytics, your go-to resource for practical insights into data engineering, Apache Spark optimization, database management, and modern data technologies. I share real-world solutions, performance tuning techniques, and best practices learned from working with big data systems and analytics platforms."
     intro_description_2: "Whether you're dealing with data skewing in Spark, setting up databases with Docker, or optimizing your data pipelines, you'll find actionable content designed to help you solve complex data challenges efficiently."
+    no_posts: "No posts available in this language yet."
   about:
     title: "About Leonardo Galler"
     welcome: "Welcome! I'm Leonardo Galler, a passionate **Data Engineer & Analytics Professional** with extensive experience in big data technologies, database optimization, and cloud platforms."
@@ -74,6 +75,7 @@ pt:
     intro_title: "Insights em Engenharia de Dados & Analytics"
     intro_description_1: "Bem-vindo ao L2 Analytics, seu recurso principal para insights práticos em engenharia de dados, otimização Apache Spark, gerenciamento de banco de dados e tecnologias modernas de dados. Compartilho soluções do mundo real, técnicas de ajuste de performance e melhores práticas aprendidas trabalhando com sistemas de big data e plataformas de analytics."
     intro_description_2: "Seja lidando com distorção de dados no Spark, configurando bancos de dados com Docker, ou otimizando seus pipelines de dados, você encontrará conteúdo acionável projetado para ajudá-lo a resolver desafios complexos de dados com eficiência."
+    no_posts: "Ainda não há posts disponíveis neste idioma."
   about:
     title: "Sobre Leonardo Galler"
     welcome: "Bem-vindo! Eu sou Leonardo Galler, um **Engenheiro de Dados & Profissional de Analytics** apaixonado com ampla experiência em tecnologias de big data, otimização de banco de dados e plataformas em nuvem."

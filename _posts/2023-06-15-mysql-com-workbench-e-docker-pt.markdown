@@ -7,6 +7,7 @@ author:
 - Leonardo Galler
 meta: "MySQL"
 lang: pt
+permalink: /pt/mysql-workbench-docker/
 ---
 <div style="text-align: justify" markdown="1">
 

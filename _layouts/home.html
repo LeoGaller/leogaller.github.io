@@ -10,17 +10,17 @@ layout: default
 
   {{ content }}
 
-  {% if site.paginate %}
-    {% assign posts = paginator.posts %}
+  {% comment %}
+    Filter posts by language - for GitHub Pages compatibility
+    we use the main posts collection and filter by lang frontmatter
+  {% endcomment %}
+  {% if current_lang == 'pt' %}
+    {% assign filtered_posts = site.posts | where: "lang", "pt" %}
   {% else %}
-    {% if current_lang == 'pt' %}
-      {% assign posts = site.posts_pt %}
-    {% else %}
-      {% assign posts = site.posts %}
-    {% endif %}
+    {% assign filtered_posts = site.posts | where_exp: "post", "post.lang != 'pt'" %}
   {% endif %}
 
-  {%- if posts.size > 0 -%}
+  {%- if filtered_posts.size > 0 -%}
     {%- if page.list_title -%}
       <h2 class="post-list-heading">{{ page.list_title }}</h2>
     {%- else -%}
@@ -28,7 +28,7 @@ layout: default
     {%- endif -%}
     <ul class="post-list">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      {%- for post in posts -%}
+      {%- for post in filtered_posts -%}
       <li>
         <span class="post-meta">{{ post.date | date: date_format }}</span>
         <h3>
@@ -61,6 +61,10 @@ layout: default
       </div>
     {%- endif %}
 
+  {%- else -%}
+    <div class="no-posts">
+      <p>{{ t.homepage.no_posts | default: "No posts available in this language yet." }}</p>
+    </div>
   {%- endif -%}
 
 </div>
