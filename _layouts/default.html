@@ -1,5 +1,6 @@
+{% include i18n.html %}
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ current_lang | default: site.lang | default: "en" }}">
 
 <head>
   <meta charset="utf-8">
@@ -15,6 +16,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   {%- feed_meta -%}
+  
+  <!-- Language alternates for SEO -->
+  <link rel="alternate" hreflang="en" href="{{ page.url | prepend: site.url }}">
+  <link rel="alternate" hreflang="pt" href="{{ page.url | replace: '/en/', '/pt/' | prepend: site.url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ page.url | prepend: site.url }}">
   
   <!-- Google Analytics -->
   {% if site.google_analytics %}

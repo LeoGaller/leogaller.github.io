@@ -1,8 +1,8 @@
 ---
 layout: page
-title: About
-lang: en
-permalink: /about/
+title: Sobre
+lang: pt
+permalink: /pt/sobre/
 ---
 {% include i18n.html %}
 
@@ -48,4 +48,4 @@ permalink: /about/
 
 ---
 
-{{ t.about.footer_message }}
+{{ t.about.footer_message }} 

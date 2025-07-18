@@ -1,0 +1,77 @@
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% assign translations = site.data.translations[current_lang] %}
+
+<div class="language-selector">
+  <div class="language-switcher">
+    {% if current_lang == 'en' %}
+      <a href="{{ page.url | replace: '/en/', '/pt/' | replace: '.html', '.html' }}" class="language-link" title="{{ site.data.translations.en.language.switch_to }} {{ site.data.translations.en.language.portuguese }}">
+        <span class="flag">🇧🇷</span>
+        <span class="lang-text">PT</span>
+      </a>
+    {% else %}
+      <a href="{{ page.url | replace: '/pt/', '/en/' | replace: '.html', '.html' }}" class="language-link" title="{{ site.data.translations.pt.language.switch_to }} {{ site.data.translations.pt.language.english }}">
+        <span class="flag">🇺🇸</span>
+        <span class="lang-text">EN</span>
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+.language-selector {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.language-switcher {
+  position: relative;
+}
+
+.language-link {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.language-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.language-link .flag {
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.language-link .lang-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+@media screen and (max-width: 600px) {
+  .language-selector {
+    margin-left: 0.5rem;
+  }
+  
+  .language-link {
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .language-link .lang-text {
+    display: none;
+  }
+  
+  .language-link .flag {
+    margin-right: 0;
+  }
+}
+</style> 

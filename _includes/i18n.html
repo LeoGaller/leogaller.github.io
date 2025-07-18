@@ -1,0 +1,36 @@
+{% comment %}
+  This include helps with internationalization by:
+  1. Detecting the current language from the page or URL
+  2. Setting up translation variables
+  3. Providing helper functions for multilingual content
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% assign t = site.data.translations[current_lang] %}
+
+{% comment %} 
+  Auto-detect language from URL path if not set in front matter
+{% endcomment %}
+{% unless page.lang %}
+  {% assign url_parts = page.url | split: '/' %}
+  {% if url_parts[1] == 'pt' %}
+    {% assign current_lang = 'pt' %}
+    {% assign t = site.data.translations.pt %}
+  {% else %}
+    {% assign current_lang = 'en' %}
+    {% assign t = site.data.translations.en %}
+  {% endif %}
+{% endunless %}
+
+{% comment %}
+  Set language-specific variables
+{% endcomment %}
+{% if current_lang == 'pt' %}
+  {% assign site_description = site.description_pt %}
+  {% assign author_bio = site.author.bio_pt %}
+  {% assign posts_collection = site.posts_pt %}
+{% else %}
+  {% assign site_description = site.description_en %}
+  {% assign author_bio = site.author.bio %}
+  {% assign posts_collection = site.posts %}
+{% endif %} 

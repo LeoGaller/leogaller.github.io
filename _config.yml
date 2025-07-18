@@ -29,11 +29,25 @@ twitter_username:
 github_username: LeoGaller
 linkedin_username: leonardo-galler
 
+# Multilingual settings
+languages: ["en", "pt"]
+default_lang: "en"
+exclude_from_localization: ["javascript", "images", "css", "assets"]
+
+# Language-specific descriptions
+description_en: >-
+  Professional insights into data analytics, Spark optimization, and modern data engineering solutions.
+  Sharing practical expertise in big data technologies, database management, and performance tuning.
+description_pt: >-
+  Insights profissionais em análise de dados, otimização Spark e soluções modernas de engenharia de dados.
+  Compartilhando experiência prática em tecnologias de big data, gerenciamento de banco de dados e ajuste de performance.
+
 # Author information
 author:
   name: Leonardo Galler
   email: leolacerdagaller@live.com
   bio: "Data Engineer & Analytics Professional specializing in Apache Spark, MySQL, and cloud technologies"
+  bio_pt: "Engenheiro de Dados & Profissional de Analytics especializado em Apache Spark, MySQL e tecnologias em nuvem"
 
 # Build settings
 theme: minima
@@ -64,6 +78,12 @@ timezone: America/Sao_Paulo
 # Pagination
 paginate: 10
 paginate_path: "/page:num/"
+
+# Collections for multilingual content
+collections:
+  posts_pt:
+    output: true
+    permalink: /pt/:title/
 
 # Exclude from processing.
 # The following items will not be processed, by default.
