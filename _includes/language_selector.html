@@ -4,12 +4,28 @@
 <div class="language-selector">
   <div class="language-switcher">
     {% if current_lang == 'en' %}
-      <a href="{{ page.url | replace: '/en/', '/pt/' | replace: '.html', '.html' }}" class="language-link" title="{{ site.data.translations.en.language.switch_to }} {{ site.data.translations.en.language.portuguese }}">
+      {% comment %} Switching from English to Portuguese {% endcomment %}
+      {% if page.url == '/' %}
+        {% assign pt_url = '/pt/' %}
+      {% elsif page.url == '/about/' %}
+        {% assign pt_url = '/pt/sobre/' %}
+      {% else %}
+        {% assign pt_url = page.url | replace: '/en/', '/pt/' %}
+      {% endif %}
+      <a href="{{ pt_url }}" class="language-link" title="{{ site.data.translations.en.language.switch_to }} {{ site.data.translations.en.language.portuguese }}">
         <span class="flag">🇧🇷</span>
         <span class="lang-text">PT</span>
       </a>
     {% else %}
-      <a href="{{ page.url | replace: '/pt/', '/en/' | replace: '.html', '.html' }}" class="language-link" title="{{ site.data.translations.pt.language.switch_to }} {{ site.data.translations.pt.language.english }}">
+      {% comment %} Switching from Portuguese to English {% endcomment %}
+      {% if page.url == '/pt/' or page.url == '/pt/index.html' %}
+        {% assign en_url = '/' %}
+      {% elsif page.url == '/pt/sobre/' %}
+        {% assign en_url = '/about/' %}
+      {% else %}
+        {% assign en_url = page.url | replace: '/pt/', '/' %}
+      {% endif %}
+      <a href="{{ en_url }}" class="language-link" title="{{ site.data.translations.pt.language.switch_to }} {{ site.data.translations.pt.language.english }}">
         <span class="flag">🇺🇸</span>
         <span class="lang-text">EN</span>
       </a>
