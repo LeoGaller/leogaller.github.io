@@ -5,106 +5,6 @@ title: "Page Not Found"
 ---
 {% include i18n.html %}
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  
-  .error-code {
-    font-size: 4rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .error-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-  }
-  
-  .error-description {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-  
-  .error-actions {
-    margin-top: 2rem;
-  }
-  
-  .error-actions a {
-    display: inline-block;
-    margin: 0 1rem;
-    padding: 0.75rem 1.5rem;
-    background: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-  
-  .error-actions a:hover {
-    background: var(--secondary-color);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-  }
-  
-  .error-actions a.secondary {
-    background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-  }
-  
-  .error-actions a.secondary:hover {
-    background: var(--primary-color);
-    color: white;
-  }
-  
-  .suggestions {
-    background: var(--surface);
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 3rem 0;
-    border: 1px solid var(--border);
-    text-align: left;
-  }
-  
-  .suggestions h3 {
-    margin-top: 0;
-    color: var(--text-primary);
-    font-weight: 600;
-  }
-  
-  .suggestions ul {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-  }
-  
-  .suggestions li {
-    margin-bottom: 0.5rem;
-    color: var(--text-secondary);
-  }
-  
-  .suggestions a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-  
-  .suggestions a:hover {
-    text-decoration: underline;
-  }
-</style>
-
 <div class="container">
   <div class="error-code">404</div>
   <h1 class="error-title">{{ t.error_404.title }}</h1>
@@ -135,7 +35,7 @@ title: "Page Not Found"
     </ul>
   </div>
 
-  <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 2rem;">
+  <p class="error-contact">
     {{ t.error_404.contact_error }} 
     <a href="mailto:leolacerdagaller@live.com" style="color: var(--primary-color);">{{ t.error_404.contact_me }}</a>.
   </p>
