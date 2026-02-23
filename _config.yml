@@ -59,6 +59,8 @@ plugins:
   - jekyll-sitemap
 
 # Minima theme settings
+linkedin_url: "https://br.linkedin.com/in/leonardogaller/pt"
+
 minima:
   skin: dark
   social_links:

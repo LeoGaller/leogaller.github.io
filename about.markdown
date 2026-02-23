@@ -44,7 +44,7 @@ permalink: /about/
 
 - {{ t.about.connect_email }}: [leolacerdagaller@live.com](mailto:leolacerdagaller@live.com)
 - {{ t.about.connect_github }}: [@LeoGaller](https://github.com/LeoGaller)
-- {{ t.about.connect_linkedin }}: [leonardo-galler](https://linkedin.com/in/leonardo-galler)
+- {{ t.about.connect_linkedin }}: [leonardogaller](https://br.linkedin.com/in/leonardogaller/pt)
 
 ---
 
